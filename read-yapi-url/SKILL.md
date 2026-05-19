@@ -347,15 +347,6 @@ Extracts one category API list from local raw export by category URL.
 - Input: `<url> [export_file]`
 - Output: YApi-compatible `{ errcode, errmsg, data: { count, total, list } }`
 
-### Legacy scripts
-
-These direct-fetch scripts are kept for reference but are no longer the primary workflow:
-
-- `read_yapi_api_url.js`
-- `read_yapi_cate_url.js`
-
-Prefer `sync_yapi_full.js` + extract scripts so project data stays local and git-manageable.
-
 ## Error Handling
 
 - **Missing YApi host**: Check `yapi/config.json` or ask user for URL/host
