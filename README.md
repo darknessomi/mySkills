@@ -21,6 +21,7 @@ cp -r mySkills/* ~/.codex/skills/
 |-------|------|----------|
 | [commit-it](commit-it/) | 按 Angular Conventional Commit 规范生成中文 commit message | 提交代码、写 commit message |
 | [feishu-doc-mcp](feishu-doc-mcp/) | 调用飞书文档 MCP 读写云文档 | 用户提供飞书文档 URL、搜索/创建/更新文档 |
+| [figma-miniprogram-assets](figma-miniprogram-assets/) | 从 Figma 下载微信小程序图片资源并导出 3x PNG | Figma 切图、图标下载、设计稿还原、替换 `.png` |
 | [read-yapi-url](read-yapi-url/) | 同步 YApi 项目数据到本地并提取 API 文档 | 用户提供 YApi URL、同步/读取接口文档 |
 | [zeplin-page-from-design](zeplin-page-from-design/) | 基于 Zeplin 设计稿分步还原页面 | Zeplin 设计稿、截图驱动 UI 实现 |
 
@@ -38,9 +39,11 @@ Token 获取路径：`https://{yapi_host}/project/{project_id}/setting` → toke
 
 YApi host 从用户提供的 URL 解析，首次 sync 后写入 `yapi/config.json` 的 `yapi_host` 字段，后续 refresh 无需再传 URL。
 
-### feishu-doc-mcp / zeplin-page-from-design
+### feishu-doc-mcp / zeplin-page-from-design / figma-miniprogram-assets
 
-需在 Cursor 中配置对应 MCP server。Skill 中的 `user-feishu-mcp`、`user-zeplin` 为示例名称，请替换为你本地 MCP 配置中的 server 名。
+需在 Cursor 中配置对应 MCP server。Skill 中的 `user-feishu-mcp`、`user-zeplin` 等为示例名称，请替换为你本地 MCP 配置中的 server 名。
+
+`figma-miniprogram-assets` 使用 Figma MCP 的 `get_design_context` 获取 asset URL，本地需安装 `rsvg-convert`（`brew install librsvg`）用于 SVG 转 3x PNG。
 
 ## 前置依赖
 
@@ -48,6 +51,7 @@ YApi host 从用户提供的 URL 解析，首次 sync 后写入 `yapi/config.jso
 |-------|------|
 | read-yapi-url | Node.js 18+、全局安装 `sm2tsservice`（`npm i -g sm2tsservice`） |
 | feishu-doc-mcp | 飞书文档 MCP server |
+| figma-miniprogram-assets | Figma MCP server、`rsvg-convert`（推荐）、macOS `sips` |
 | zeplin-page-from-design | Zeplin MCP server |
 | commit-it | 无 |
 
