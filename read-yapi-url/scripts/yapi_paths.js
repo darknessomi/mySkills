@@ -99,8 +99,6 @@ function getProjectPaths(cwd, projectId) {
     data_dir: dataDir,
     project_dir: projectDir,
     export_file: path.join(projectDir, 'export.json'),
-    swagger_file: path.join(projectDir, 'swagger.json'),
-    json2service_file: path.join(projectDir, 'json2service.json'),
     config_file: CONFIG_FILE
   };
 
